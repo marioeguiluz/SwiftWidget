@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		AC0318A31993F55600752815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0318A21993F55600752815 /* AppDelegate.swift */; };
-		AC0318A51993F55600752815 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0318A41993F55600752815 /* ViewController.swift */; };
+		AC0318A51993F55600752815 /* StocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0318A41993F55600752815 /* StocksTableViewController.swift */; };
 		AC0318A81993F55600752815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0318A61993F55600752815 /* Main.storyboard */; };
 		AC0318AA1993F55600752815 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0318A91993F55600752815 /* Images.xcassets */; };
 		AC0318B61993F55600752815 /* SwiftStocksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0318B51993F55600752815 /* SwiftStocksTests.swift */; };
+		ACF1E78F19A2AFC800810024 /* StockManagerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1E78E19A2AFC800810024 /* StockManagerSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +29,13 @@
 		AC03189D1993F55600752815 /* SwiftStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0318A11993F55600752815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC0318A21993F55600752815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC0318A41993F55600752815 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC0318A41993F55600752815 /* StocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTableViewController.swift; sourceTree = "<group>"; };
 		AC0318A71993F55600752815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC0318A91993F55600752815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AC0318AF1993F55600752815 /* SwiftStocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftStocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0318B41993F55600752815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC0318B51993F55600752815 /* SwiftStocksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStocksTests.swift; sourceTree = "<group>"; };
+		ACF1E78E19A2AFC800810024 /* StockManagerSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManagerSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				AC0318A21993F55600752815 /* AppDelegate.swift */,
-				AC0318A41993F55600752815 /* ViewController.swift */,
+				AC0318A41993F55600752815 /* StocksTableViewController.swift */,
+				ACF1E78E19A2AFC800810024 /* StockManagerSingleton.swift */,
 				AC0318A61993F55600752815 /* Main.storyboard */,
 				AC0318A91993F55600752815 /* Images.xcassets */,
 				AC0318A01993F55600752815 /* Supporting Files */,
@@ -208,7 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC0318A51993F55600752815 /* ViewController.swift in Sources */,
+				AC0318A51993F55600752815 /* StocksTableViewController.swift in Sources */,
+				ACF1E78F19A2AFC800810024 /* StockManagerSingleton.swift in Sources */,
 				AC0318A31993F55600752815 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,9 +331,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SwiftStocks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -338,9 +344,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = SwiftStocks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -397,6 +405,7 @@
 				AC0318BB1993F55600752815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC0318BC1993F55600752815 /* Build configuration list for PBXNativeTarget "SwiftStocksTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +414,7 @@
 				AC0318BE1993F55600752815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
