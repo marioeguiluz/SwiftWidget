@@ -89,8 +89,9 @@ class StocksTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     //4
-    func stocksUpdated(notification:NSNotification) {
-        let stocksReceived:NSArray = notification.userInfo[kNotificationStocksUpdated] as NSArray
+    func stocksUpdated(notification: NSNotification) {
+        let values = (notification.userInfo as Dictionary<String,NSArray>)
+        let stocksReceived:NSArray = values[kNotificationStocksUpdated]!
         stocks.removeAll(keepCapacity: false)
         for quote in stocksReceived {
             let quoteDict:NSDictionary = quote as NSDictionary

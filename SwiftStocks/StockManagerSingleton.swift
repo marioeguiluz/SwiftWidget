@@ -36,7 +36,7 @@ class StockManagerSingleton {
         stringQuotes = stringQuotes.substringToIndex(stringQuotes.endIndex.predecessor())
         stringQuotes = stringQuotes + ")"
 
-        var urlString:String = ("http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.quotes where symbol IN "+stringQuotes+"&format=json&env=http://datatables.org/alltables.env").stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        var urlString:String = ("http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.quotes where symbol IN "+stringQuotes+"&format=json&env=http://datatables.org/alltables.env").stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var url : NSURL = NSURL.URLWithString(urlString)
         var request: NSURLRequest = NSURLRequest(URL:url)
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -45,7 +45,7 @@ class StockManagerSingleton {
         //3: Completion block/Clousure for the NSURLSessionDataTask
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
-            if(error) {
+            if((error) != nil) {
                 println(error.localizedDescription)
             }
             else {
@@ -57,7 +57,7 @@ class StockManagerSingleton {
                 }
                 else {
                     //5: Extract the Quotes and Values and send them inside a NSNotification
-                    var quotes:NSArray = jsonDict.objectForKey("query").objectForKey("results").objectForKey("quote") as NSArray
+                    var quotes:NSArray = ((jsonDict.objectForKey("query") as NSDictionary).objectForKey("results") as NSDictionary).objectForKey("quote") as NSArray
                     dispatch_async(dispatch_get_main_queue(), {
                         NSNotificationCenter.defaultCenter().postNotificationName(kNotificationStocksUpdated, object: nil, userInfo: [kNotificationStocksUpdated:quotes])
                         })
