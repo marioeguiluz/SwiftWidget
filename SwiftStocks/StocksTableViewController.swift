@@ -37,6 +37,15 @@ class StocksTableViewController: UIViewController, UITableViewDataSource, UITabl
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "cellId")
         cell.textLabel!.text = stocks[indexPath.row].0 //position 0 of the tuple: The Symbol "AAPL"
         cell.detailTextLabel!.text = "\(stocks[indexPath.row].1)" + "%" //position 1 of the tuple: The value "1.5" into String
+        
+        //NEW CODE FOR WIDGETS
+        //1
+        if(stocks[indexPath.row].0 == "AAPL") {
+            let defaults:NSUserDefaults = NSUserDefaults(suiteName: "group.SwiftStocks.Widget")
+            let symbolAndprize = "AAPL \(stocks[indexPath.row].1)" + "%"
+            defaults.setObject( symbolAndprize , forKey: "AAPLvalue")
+        }
+        
         return cell
     }
     
