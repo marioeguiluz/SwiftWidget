@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>StockWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>SwiftStocks.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>AC0318AE1993F55600752815</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC1F7F4719DE8FF00049D4B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

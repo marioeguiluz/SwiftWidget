@@ -37,7 +37,7 @@ class StockManagerSingleton {
         stringQuotes = stringQuotes + ")"
         
         var urlString:String = ("http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.quotes where symbol IN "+stringQuotes+"&format=json&env=http://datatables.org/alltables.env").stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        var url : NSURL = NSURL.URLWithString(urlString)
+        var url : NSURL = NSURL(string:urlString)!
         var request: NSURLRequest = NSURLRequest(URL:url)
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)

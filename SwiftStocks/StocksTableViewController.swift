@@ -41,7 +41,7 @@ class StocksTableViewController: UIViewController, UITableViewDataSource, UITabl
         //NEW CODE FOR WIDGETS
         //1
         if(stocks[indexPath.row].0 == "AAPL") {
-            let defaults:NSUserDefaults = NSUserDefaults(suiteName: "group.SwiftStocks.Widget")
+            let defaults:NSUserDefaults = NSUserDefaults(suiteName: "group.SwiftStocks.Widget")!
             let symbolAndprize = "AAPL \(stocks[indexPath.row].1)" + "%"
             defaults.setObject( symbolAndprize , forKey: "AAPLvalue")
         }

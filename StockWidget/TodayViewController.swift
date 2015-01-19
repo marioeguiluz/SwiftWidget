@@ -35,7 +35,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             self.labelWidget.text = "APPL +2.7%"
             
             //2
-            let defaults:NSUserDefaults = NSUserDefaults(suiteName: "group.SwiftStocks.Widget")
+            let defaults:NSUserDefaults = NSUserDefaults(suiteName: "group.SwiftStocks.Widget")!
             self.labelWidget.text = defaults.objectForKey("AAPLvalue") as NSString
         });
 
